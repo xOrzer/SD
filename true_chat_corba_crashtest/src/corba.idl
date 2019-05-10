@@ -1,0 +1,18 @@
+module corba {
+
+    interface ChatClient ;
+
+    interface ChatServer{
+        void register(in ChatClient c) ;
+        void unRegister(in ChatClient c) ;
+        void sendToAll(in string msg, in ChatClient from) ;
+    };
+
+    typedef sequence<string> Names ;
+
+    interface ChatClient{
+        string getUserName() ;
+        void addMSG(in string msg) ;
+        void updateConnectedUsers(in Names names) ;
+    };
+};

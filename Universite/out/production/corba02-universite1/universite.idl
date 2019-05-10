@@ -1,0 +1,29 @@
+module universite {
+
+    interface Personne {
+        attribute string nom ;
+    } ;
+
+    interface Etudiant : Personne {
+
+        void ajouterNoteDans(in float note, in string matiere) ;
+
+        typedef sequence<string> Matieres ;
+        Matieres listeMatieres() ;
+
+        typedef sequence<float> Notes ;
+        Notes listeNotes() ;
+
+        float moyenne() ;
+
+        struct Resultat {
+            string matiere ;
+            float note ;
+        } ;
+        typedef sequence<Resultat> Resultats ;
+        Resultats listeResultats() ;
+
+        readonly attribute long numCarte ;
+    };
+
+};
